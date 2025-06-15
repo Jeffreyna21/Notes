@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Notes.Models"
+             x:Class="Notes.Views.NotePage"
+             Title="Jeffrey Navarrete"
+             x:DataType="models:Note"
+             BackgroundColor="#121212">
+
+    <VerticalStackLayout Spacing="16" Margin="10">
+        <Editor x:Name="TextEditor"
+                Placeholder="Ingresa tu nota"
+                Text="{Binding Text}"
+                HeightRequest="150"
+                FontSize="18"
+                BackgroundColor="#1e1e1e"
+                TextColor="White"
+                PlaceholderColor="#AAAAAA"
+                AutoSize="TextChanges" />
+
+        <Grid ColumnDefinitions="*,*" ColumnSpacing="10">
+            <Button Text="Save"
+                    Clicked="SaveButton_Clicked"
+                    BackgroundColor="DarkGreen"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Padding="10,6" />
+
+            <Button Grid.Column="1"
+                    Text="Delete"
+                    Clicked="DeleteButton_Clicked"
+                    BackgroundColor="DarkRed"
+                    TextColor="White"
+                    FontSize="16"
+                    CornerRadius="8"
+                    Padding="10,6" />
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

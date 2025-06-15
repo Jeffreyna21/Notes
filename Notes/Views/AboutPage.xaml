@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:models="clr-namespace:Notes.Models"
+             x:Class="Notes.Views.AboutPage"
+             Title="Jeffrey Navarrete"
+             x:DataType="models:About"
+             BackgroundColor="#121212">
+
+    <ContentPage.BindingContext>
+        <models:About />
+    </ContentPage.BindingContext>
+
+    <VerticalStackLayout Spacing="10" Margin="10">
+        <HorizontalStackLayout Spacing="10">
+            <Image Source="pesadilla.png"
+                   SemanticProperties.Description="The dot net bot waving hello!"
+                   HeightRequest="64"/>
+            <Label FontSize="22"
+                   FontAttributes="Bold"
+                   Text="{Binding Title}"
+                   VerticalOptions="End"
+                   TextColor="White" />
+            <Label FontSize="22"
+                   Text="{Binding Version}"
+                   VerticalOptions="End"
+                   TextColor="#BBBBBB" />
+        </HorizontalStackLayout>
+
+        <Grid VerticalOptions="Center"
+              HorizontalOptions="Center"
+              RowDefinitions="Auto,Auto"
+              ColumnDefinitions="*,*"
+              RowSpacing="15"
+              ColumnSpacing="15"
+              Padding="20">
+
+            <Frame Grid.Row="0" Grid.Column="0"
+                   BackgroundColor="#6A1B9A"
+                   BorderColor="#9C27B0"
+                   CornerRadius="10"
+                   Padding="15"
+                   HasShadow="True">
+                <StackLayout Spacing="8">
+                    <Label Text="Nombre:"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="White" />
+                    <Label Text="Jeffrey Navarrete"
+                           FontSize="14"
+                           TextColor="#E0E0E0" />
+                </StackLayout>
+            </Frame>
+
+            <Frame Grid.Row="1" Grid.Column="0"
+                   BackgroundColor="#6A1B9A"
+                   BorderColor="#9C27B0"
+                   CornerRadius="10"
+                   Padding="15"
+                   HasShadow="True">
+                <StackLayout Spacing="8">
+                    <Label Text="Intereses:"
+                           FontAttributes="Bold"
+                           FontSize="16"
+                           TextColor="White" />
+                    <Label Text="Me encanta el automovilismo, el futbol y cualquier deporte"
+                           FontSize="14"
+                           TextColor="#E0E0E0" />
+                </StackLayout>
+            </Frame>
+        </Grid>
+
+        <Label Text="{Binding Message}"
+               TextColor="#DDDDDD"
+               FontSize="14" />
+        <Button Text="Learn more..."
+                Clicked="LearnMore_Clicked"
+                BackgroundColor="#7B1FA2"
+                TextColor="White"
+                CornerRadius="8"
+                FontSize="16"
+                Padding="10,6" />
+    </VerticalStackLayout>
+</ContentPage>
